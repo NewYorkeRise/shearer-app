@@ -104,13 +104,29 @@ button { cursor: pointer; }
 .quiet-button, .link-button, .text-action { padding: 8px 0; color: var(--accent); background: transparent; }
 .hero-note { display: flex; align-items: center; gap: 6px; margin-top: 35px; color: var(--text-soft); font-size: 10px; }
 .season-card { position: relative; min-height: 290px; padding: 21px; overflow: hidden; color: #eef9f2; background: #255e57; border-radius: 18px; box-shadow: var(--shadow); }
-.season-card::after { position: absolute; right: -30px; bottom: -55px; width: 210px; height: 210px; content: ''; border: 1px solid rgba(255,255,255,.16); border-radius: 50%; box-shadow: 0 0 0 20px rgba(255,255,255,.03), 0 0 0 40px rgba(255,255,255,.025); }
+.season-card::after { display: none; }
 .season-header { position: relative; z-index: 1; font-size: 11px; font-weight: 700; }
 .season-header > div { display: grid; gap: 4px; }
 .season-header > div > span { color: rgba(240,255,245,.66); font-size: 9px; font-weight: 700; letter-spacing: .08em; text-transform: uppercase; }
 .season-header > div > strong { font-size: 14px; letter-spacing: -.035em; }
 .status-pill { display: inline-flex; align-items: center; gap: 5px; padding: 5px 7px; color: #dff7e7; background: rgba(255,255,255,.12); border-radius: 99px; font-size: 9px; }
 .status-pill span { width: 5px; height: 5px; border-radius: 50%; background: #9ce1af; }
+.season-chart { position: relative; z-index: 1; margin-top: 24px; }
+.season-chart-head { display: flex; align-items: center; justify-content: space-between; gap: 10px; color: rgba(240,255,245,.72); }
+.season-chart-head > div { min-width: 0; }
+.season-chart-head strong, .season-chart-head span { display: block; }
+.season-chart-head strong { color: #eef9f2; font-size: 11px; }
+.season-chart-head span { margin-top: 3px; font-size: 9px; }
+.season-chart-plot { display: grid; grid-template-columns: 28px minmax(0,1fr); gap: 8px; height: 130px; margin-top: 12px; }
+.season-chart-axis { display: flex; flex-direction: column; justify-content: space-between; padding: 1px 0 18px; color: rgba(240,255,245,.5); font-size: 8px; text-align: right; }
+.season-chart-body { position: relative; min-width: 0; border-bottom: 1px solid rgba(255,255,255,.25); background: repeating-linear-gradient(to bottom, transparent 0 31px, rgba(255,255,255,.12) 31px 32px); }
+.season-chart-bars { position: absolute; inset: 0 3px 0 2px; display: flex; align-items: flex-end; justify-content: space-around; gap: 5px; }
+.season-chart-column { height: 100%; min-width: 0; flex: 1; display: flex; flex-direction: column; align-items: center; justify-content: flex-end; gap: 4px; }
+.season-chart-column strong { color: rgba(240,255,245,.7); font-size: 8px; font-weight: 700; }
+.season-chart-column span { overflow: hidden; width: 100%; color: rgba(240,255,245,.68); font-size: 8px; text-align: center; text-overflow: ellipsis; white-space: nowrap; }
+.season-bar { width: min(25px, 72%); min-height: 7px; background: rgba(190,236,204,.58); border-radius: 4px 4px 1px 1px; }
+.season-chart-column.current .season-bar { background: #a4e5b5; }
+.season-chart-column.current span, .season-chart-column.current strong { color: #eef9f2; }
 .season-visual { position: relative; width: 175px; height: 160px; margin: 9px auto 0; }
 .season-orbit { position: absolute; inset: 14px; border: 1px solid rgba(221,250,232,.33); border-radius: 50%; transform: rotate(-28deg) scaleX(.72); }
 .orbit-two { inset: 30px 8px; transform: rotate(45deg) scaleX(.73); border-color: rgba(205,243,222,.22); }
