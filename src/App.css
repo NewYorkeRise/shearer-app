@@ -106,6 +106,9 @@ button { cursor: pointer; }
 .season-card { position: relative; min-height: 290px; padding: 21px; overflow: hidden; color: #eef9f2; background: #255e57; border-radius: 18px; box-shadow: var(--shadow); }
 .season-card::after { position: absolute; right: -30px; bottom: -55px; width: 210px; height: 210px; content: ''; border: 1px solid rgba(255,255,255,.16); border-radius: 50%; box-shadow: 0 0 0 20px rgba(255,255,255,.03), 0 0 0 40px rgba(255,255,255,.025); }
 .season-header { position: relative; z-index: 1; font-size: 11px; font-weight: 700; }
+.season-header > div { display: grid; gap: 4px; }
+.season-header > div > span { color: rgba(240,255,245,.66); font-size: 9px; font-weight: 700; letter-spacing: .08em; text-transform: uppercase; }
+.season-header > div > strong { font-size: 14px; letter-spacing: -.035em; }
 .status-pill { display: inline-flex; align-items: center; gap: 5px; padding: 5px 7px; color: #dff7e7; background: rgba(255,255,255,.12); border-radius: 99px; font-size: 9px; }
 .status-pill span { width: 5px; height: 5px; border-radius: 50%; background: #9ce1af; }
 .season-visual { position: relative; width: 175px; height: 160px; margin: 9px auto 0; }
@@ -113,7 +116,7 @@ button { cursor: pointer; }
 .orbit-two { inset: 30px 8px; transform: rotate(45deg) scaleX(.73); border-color: rgba(205,243,222,.22); }
 .season-center { position: absolute; inset: 50px; display: grid; place-content: center; text-align: center; background: rgba(12,60,52,.7); border: 1px solid rgba(255,255,255,.16); border-radius: 50%; }
 .season-center strong { font-size: 38px; line-height: .9; letter-spacing: -.08em; }
-.season-center span { margin-top: 4px; font-size: 9px; letter-spacing: .14em; }
+.season-center span { margin-top: 4px; font-size: 9px; letter-spacing: .04em; }
 .season-footer { position: relative; z-index: 1; display: grid; grid-template-columns: 1fr 1fr; padding-top: 12px; border-top: 1px solid rgba(255,255,255,.19); }
 .season-footer div + div { padding-left: 17px; border-left: 1px solid rgba(255,255,255,.19); }
 .season-footer strong, .season-footer span { display: block; }
