@@ -55,11 +55,7 @@ button { cursor: pointer; }
 .nav-item.active { color: var(--accent); background: var(--accent-soft); }
 .nav-dot { width: 6px; height: 6px; margin-left: auto; border-radius: 50%; background: #ef9276; }
 .sidebar-bottom { margin-top: auto; }
-.google-card { display: flex; gap: 9px; padding: 11px 10px; margin: 0 0 18px; background: var(--surface); border: 1px solid var(--line); border-radius: 13px; box-shadow: var(--shadow-small); }
-.google-card-icon, .integration-icon { width: 23px; height: 23px; flex: 0 0 23px; display: grid; place-items: center; border-radius: 7px; color: #fff; background: linear-gradient(135deg, #4285f4 0 28%, #34a853 28% 52%, #fbbc05 52% 75%, #ea4335 75%); font-size: 12px; font-weight: 800; }
-.google-card strong, .google-card span { display: block; }
-.google-card strong { margin-bottom: 3px; font-size: 10px; }
-.google-card span { color: var(--text-soft); font-size: 9px; line-height: 1.35; }
+.integration-icon { width: 23px; height: 23px; flex: 0 0 23px; display: grid; place-items: center; border-radius: 7px; color: #fff; background: linear-gradient(135deg, #4285f4 0 28%, #34a853 28% 52%, #fbbc05 52% 75%, #ea4335 75%); font-size: 12px; font-weight: 800; }
 .settings-link { display: flex; align-items: center; gap: 10px; width: 100%; padding: 9px 10px; color: var(--text-soft); font-size: 11px; text-align: left; }
 .settings-link:hover { color: var(--text); }
 .account-row { display: flex; align-items: center; gap: 9px; padding: 17px 8px 0; border-top: 1px solid var(--line); margin-top: 10px; }
