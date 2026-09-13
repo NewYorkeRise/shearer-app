@@ -441,7 +441,6 @@ label input, label select { height: 38px; padding: 0 10px; background: var(--sur
 }
 @media (max-width: 540px) {
   .topbar-actions { gap: 3px; }
-  .language-button span { display: none; }
   .topbar { padding-right: 13px; }
   .hero-actions { align-items: stretch; flex-direction: column; gap: 8px; }
   .hero-actions .primary-button { width: max-content; }

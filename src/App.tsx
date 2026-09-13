@@ -256,6 +256,9 @@ function App() {
         <button className="icon-button menu-button" onClick={() => setMobileNavOpen(true)} aria-label={t('openMenu')}><Menu size={20} /></button>
         <div className="topbar-context"><span className="context-kicker">{t('eyebrow')}</span><span className="context-title">{activeView === 'home' ? t('activeSeason') : navItems.find((item) => item.id === activeView)?.label}</span></div>
         <div className="topbar-actions">
+          <button className="control-button language-button" onClick={() => setLanguage(language === 'en' ? 'mn' : 'en')} title={t('switchLanguage')}><span>{language === 'en' ? 'MN' : 'EN'}</span></button>
+          <button className="control-button theme-button" onClick={() => setTheme(theme === 'light' ? 'dark' : 'light')} title={t('switchTheme')}>{theme === 'light' ? <Moon size={16} /> : <Sun size={16} />}</button>
+          <button className="topbar-user login-trigger" onClick={() => setIsLoginOpen(true)} title={t('loginTitle')}><div className="avatar small">{currentUser.initials}</div><span>{currentUser.name} · {t('demoAccount')}</span></button>
           <div className="notification-wrap">
             <button className="control-button notification-button" onClick={() => setIsNotificationsOpen((open) => !open)} title={t('notifications')} aria-label={t('notifications')} aria-expanded={isNotificationsOpen} aria-controls="notification-panel"><Bell size={16} /><span className="notification-dot" /></button>
             {isNotificationsOpen && <div className="notification-panel" id="notification-panel" role="dialog" aria-label={t('notifications')}>
@@ -263,9 +266,6 @@ function App() {
               <div className="notification-list"><div className="notification-item"><span className="notification-status"><Check size={13} /></span><div><strong>{t('notificationOne')}</strong><small>{t('salaryPaid')}</small></div></div><div className="notification-item"><span className="notification-status"><Check size={13} /></span><div><strong>{t('notificationTwo')}</strong><small>{t('tasksComplete')}</small></div></div><div className="notification-item"><span className="notification-status"><Check size={13} /></span><div><strong>{t('notificationThree')}</strong><small>{t('reportMatched')}</small></div></div></div>
             </div>}
           </div>
-          <button className="control-button language-button" onClick={() => setLanguage(language === 'en' ? 'mn' : 'en')} title={t('switchLanguage')}><Globe2 size={16} /><span>{language === 'en' ? 'MN' : 'EN'}</span></button>
-          <button className="control-button theme-button" onClick={() => setTheme(theme === 'light' ? 'dark' : 'light')} title={t('switchTheme')}>{theme === 'light' ? <Moon size={16} /> : <Sun size={16} />}</button>
-          <button className="topbar-user login-trigger" onClick={() => setIsLoginOpen(true)} title={t('loginTitle')}><div className="avatar small">{currentUser.initials}</div><span>{currentUser.name} · {t('demoAccount')}</span></button>
         </div>
       </header>
       {activeView === 'home' && <HomeView t={t} language={language} role={role} jobs={jobs} coords={coords} mapUrl={mapUrl} mapEmbedUrl={mapEmbedUrl} onCreate={() => setIsModalOpen(true)} onJobs={() => selectNav('jobs')} onShare={shareLocation} onFindLocation={findLocation} showToast={showToast} />}
