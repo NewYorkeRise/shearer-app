@@ -352,13 +352,9 @@ function ProfileView({ t, language, user, showToast }: ProfileProps) {
   const profile = roleProfiles[user.role]
   const RoleIcon = roleOptions.find((item) => item.id === user.role)?.icon ?? House
   return <div className="page-wrap inner-page profile-page">
-    <div className="page-header">
-      <div><div className="eyebrow"><RoleIcon size={14} /> {t(user.role)}</div><h1>{profile.title[language]}</h1><p>{profile.body[language]}</p></div>
-      <button className="secondary-button" onClick={() => showToast(profile.actions[0][language])}><Settings2 size={16} /> {t('editProfile')}</button>
-    </div>
     <div className="profile-grid">
       <div className="panel profile-card">
-        <div className="profile-top"><div className="profile-avatar">{user.initials}</div><div><h2>{user.name}</h2><p>{user.organization[language]}</p><span className="verified"><ShieldCheck size={14} /> {profile.badge[language]}</span></div></div>
+        <div className="profile-top"><div className="profile-avatar">{user.initials}</div><div><h2>{user.name}</h2><p>{user.organization[language]}</p><span className="verified"><ShieldCheck size={14} /> {profile.badge[language]}</span></div><button className="icon-button profile-edit-button" onClick={() => showToast(profile.actions[0][language])} aria-label={t('editProfile')} title={t('editProfile')}><Settings2 size={16} /></button></div>
         <div className="profile-lines"><div><span>{t('homeRegion')}</span><strong>{user.location[language]}</strong></div><div><span>{t('activeSince')}</span><strong>{profile.since[language]}</strong></div><div><span>{t('preferredLanguage')}</span><strong>{t('preferredLanguageValue')}</strong></div></div>
         <div className="profile-action-row"><button className="primary-button" onClick={() => showToast(profile.actions[0][language])}>{profile.actions[0][language]} <ArrowUpRight size={15} /></button><button className="secondary-button" onClick={() => showToast(profile.actions[1][language])}>{profile.actions[1][language]}</button></div>
       </div>
