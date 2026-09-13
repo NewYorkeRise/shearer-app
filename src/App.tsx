@@ -105,12 +105,12 @@ const dictionary: Record<Language, Copy> = {
   },
 }
 
-const notificationCopy: Record<Language, Copy> = {
+const supplementalCopy: Record<Language, Copy> = {
   en: {
-    notifications: 'Notifications', notificationTitle: 'Notifications', notificationBody: 'Recent field updates and payment status.', notificationOne: 'All salaries have been paid.', notificationTwo: 'Every task is 100% complete.', notificationThree: 'Reports and totals match.', closeNotifications: 'Close notifications',
+    notifications: 'Notifications', notificationTitle: 'Notifications', notificationBody: 'Recent field updates and payment status.', notificationOne: 'All salaries have been paid.', notificationTwo: 'Every task is 100% complete.', notificationThree: 'Reports and totals match.', closeNotifications: 'Close notifications', developer: 'Developer',
   },
   mn: {
-    notifications: 'Мэдэгдэл', notificationTitle: 'Мэдэгдэл', notificationBody: 'Сүүлийн талбайн шинэчлэлт ба цалингийн мэдээлэл.', notificationOne: 'Бүх цалин олгогдсон.', notificationTwo: 'Бүх даалгавар 100% биелсэн.', notificationThree: 'Тайлан, тооцоо яг таарсан.', closeNotifications: 'Мэдэгдэл хаах',
+    notifications: 'Мэдэгдэл', notificationTitle: 'Мэдэгдэл', notificationBody: 'Сүүлийн талбайн шинэчлэлт ба цалингийн мэдээлэл.', notificationOne: 'Бүх цалин олгогдсон.', notificationTwo: 'Бүх даалгавар 100% биелсэн.', notificationThree: 'Тайлан, тооцоо яг таарсан.', closeNotifications: 'Мэдэгдэл хаах', developer: 'Хөгжүүлэгч',
   },
 }
 
@@ -187,7 +187,7 @@ function App() {
   const [isNotificationsOpen, setIsNotificationsOpen] = useState(false)
   const [jobForm, setJobForm] = useState({ title: '', location: '', sheep: '', date: '2026-09-18', offer: '2,000 MNT', housing: true, food: false })
 
-  const t = (key: string) => dictionary[language][key] ?? notificationCopy[language][key] ?? key
+  const t = (key: string) => dictionary[language][key] ?? supplementalCopy[language][key] ?? key
   const currentUser = demoUsers.find((user) => user.id === currentUserId) ?? demoUsers[0]
   const role = currentUser.role
 
@@ -248,7 +248,7 @@ function App() {
       <div className="brand-row"><div className="brand-mark">S</div><div><div className="brand-name">{t('appName')}</div><div className="brand-caption">{t('fieldDesk')}</div></div><button className="icon-button sidebar-close" onClick={() => setMobileNavOpen(false)} aria-label={t('closeMenu')}><X size={18} /></button></div>
       <div className="role-switcher" aria-label={t('chooseRole')}>{roleOptions.map(({ id, labelKey, icon: Icon }) => <button key={id} className={role === id ? 'role-active' : ''} onClick={() => { const nextUser = demoUsers.find((user) => user.role === id); if (nextUser) setCurrentUserId(nextUser.id); setActiveView('profile'); setMobileNavOpen(false) }}><Icon size={15} /> {t(labelKey)}</button>)}</div>
       <nav className="side-nav"><div className="nav-label">{t('overview')}</div>{navItems.map(({ id, label, icon: Icon }) => <button key={id} className={`nav-item ${activeView === id ? 'active' : ''}`} onClick={() => selectNav(id)}><Icon size={18} strokeWidth={activeView === id ? 2.4 : 1.8} /><span>{label}</span>{id === 'messages' && <span className="nav-dot" />}</button>)}</nav>
-      <div className="sidebar-bottom"><button className="settings-link" onClick={() => selectNav('profile')}><Settings2 size={17} /> {t('settings')}</button><button className="account-row account-button" onClick={() => setIsLoginOpen(true)}><div className="avatar">{currentUser.initials}</div><div className="account-copy"><strong>{currentUser.name}</strong><span>{currentUser.organization[language]}</span></div><MoreHorizontal size={17} className="muted-icon" /></button></div>
+      <div className="sidebar-bottom"><button className="settings-link" onClick={() => selectNav('profile')}><Settings2 size={17} /> {t('settings')}</button><a className="settings-link developer-link" href="https://scorej.biz/" target="_blank" rel="noreferrer"><ExternalLink size={17} /> {t('developer')}</a><button className="account-row account-button" onClick={() => setIsLoginOpen(true)}><div className="avatar">{currentUser.initials}</div><div className="account-copy"><strong>{currentUser.name}</strong><span>{currentUser.organization[language]}</span></div><MoreHorizontal size={17} className="muted-icon" /></button></div>
     </aside>
 
     <main className="main-content">
