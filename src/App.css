@@ -79,6 +79,20 @@ button { cursor: pointer; }
 .context-kicker { font-size: 11px; }
 .context-title { font-size: 12px; font-weight: 700; }
 .topbar-actions { display: flex; align-items: center; gap: 8px; }
+.notification-wrap { position: relative; }
+.notification-button { position: relative; width: 31px; padding: 0; border: 1px solid var(--line); }
+.notification-dot { position: absolute; top: 6px; right: 6px; width: 5px; height: 5px; border: 1px solid var(--surface); border-radius: 50%; background: #ef9276; }
+.notification-panel { position: absolute; top: 40px; right: 0; z-index: 30; width: 286px; padding: 14px; background: var(--surface); border: 1px solid var(--line); border-radius: 13px; box-shadow: var(--shadow-small); }
+.notification-panel-header { display: flex; align-items: flex-start; justify-content: space-between; gap: 12px; padding-bottom: 11px; border-bottom: 1px solid var(--line); }
+.notification-panel-header strong, .notification-panel-header span { display: block; }
+.notification-panel-header strong { font-size: 12px; }
+.notification-panel-header span { margin-top: 4px; color: var(--text-soft); font-size: 9px; line-height: 1.35; }
+.notification-list { display: grid; gap: 8px; padding-top: 11px; }
+.notification-item { display: flex; align-items: flex-start; gap: 9px; padding: 8px; background: var(--surface-soft); border-radius: 9px; }
+.notification-status { display: grid; place-items: center; width: 22px; height: 22px; flex: 0 0 22px; color: var(--accent); background: var(--accent-soft); border-radius: 50%; }
+.notification-item strong, .notification-item small { display: block; }
+.notification-item strong { font-size: 10px; line-height: 1.3; }
+.notification-item small { margin-top: 3px; color: var(--text-soft); font-size: 8px; }
 .control-button, .icon-button, .secondary-button, .quiet-button, .link-button, .small-action, .text-action, .circle-arrow, .primary-button { border: 0; transition: transform 150ms ease, background 150ms ease, border 150ms ease, color 150ms ease; }
 .control-button:hover, .icon-button:hover, .secondary-button:hover, .quiet-button:hover, .link-button:hover, .small-action:hover, .circle-arrow:hover, .primary-button:hover { transform: translateY(-1px); }
 .control-button, .icon-button { display: grid; place-items: center; color: var(--text-soft); background: transparent; border-radius: 8px; }
