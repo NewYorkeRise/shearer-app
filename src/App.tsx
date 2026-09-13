@@ -351,7 +351,7 @@ type ProfileProps = { t: (key: string) => string; language: Language; user: Demo
 function ProfileView({ t, language, user, showToast }: ProfileProps) {
   const profile = roleProfiles[user.role]
   const RoleIcon = roleOptions.find((item) => item.id === user.role)?.icon ?? House
-  return <div className="page-wrap inner-page">
+  return <div className="page-wrap inner-page profile-page">
     <div className="page-header">
       <div><div className="eyebrow"><RoleIcon size={14} /> {t(user.role)}</div><h1>{profile.title[language]}</h1><p>{profile.body[language]}</p></div>
       <button className="secondary-button" onClick={() => showToast(profile.actions[0][language])}><Settings2 size={16} /> {t('editProfile')}</button>
