@@ -5,7 +5,6 @@ import {
   ChevronDown,
   Menu,
   MoveUpRight,
-  Play,
   Share2,
   Sparkles,
   X,
@@ -21,6 +20,8 @@ type BookingForm = {
 
 const navItems = [
   { label: 'The experience', href: '#experience' },
+  { label: 'Services', href: '#services' },
+  { label: 'Gallery', href: '#gallery' },
   { label: 'About Vanesa', href: '#about' },
   { label: 'Questions', href: '#questions' },
 ]
@@ -30,6 +31,46 @@ const benefits = [
   'Build strength and flexibility',
   'Calm your mind',
   'Reconnect with yourself',
+  'Build resilience',
+  'Practice with more awareness',
+]
+
+const contactEmail = 'info@yogawithvanesa.com'
+const sourceLogo = 'https://yogawithvanesa.com/wp-content/uploads/2022/04/Logo.png'
+
+const galleryImages = [
+  {
+    src: 'https://yogawithvanesa.com/wp-content/uploads/2022/12/8F006821-B151-4F8F-A743-BB74D44671DB-2048x2048.jpg',
+    alt: 'Vanesa practicing yoga outdoors',
+  },
+  {
+    src: 'https://yogawithvanesa.com/wp-content/uploads/2024/11/1491C355-6B90-470D-A0A5-470D140E6770.png',
+    alt: 'YogaWithVanesa class image',
+  },
+  {
+    src: 'https://yogawithvanesa.com/wp-content/uploads/2023/05/4714C3F7-8959-477B-8DF6-61F1773C6DFC.png',
+    alt: 'YogaWithVanesa practice image',
+  },
+  {
+    src: 'https://yogawithvanesa.com/wp-content/uploads/2022/05/8.jpg',
+    alt: 'Vanesa teaching an outdoor yoga class',
+  },
+  {
+    src: 'https://yogawithvanesa.com/wp-content/uploads/2023/06/IMG_6834-scaled-e1686454809505-1024x797.jpeg',
+    alt: 'Group yoga practice outdoors',
+  },
+  {
+    src: 'https://yogawithvanesa.com/wp-content/uploads/2022/12/IMG_3728_Original.jpg',
+    alt: 'Yoga movement and meditation',
+  },
+  {
+    src: 'https://yogawithvanesa.com/wp-content/uploads/2022/12/IMG_4771-1024x768.jpg',
+    alt: 'Yoga class with Vanesa',
+  },
+  {
+    src: 'https://yogawithvanesa.com/wp-content/uploads/2022/12/IMG_3686.jpg',
+    alt: 'YogaWithVanesa outdoor practice',
+  },
 ]
 
 const faqs = [
@@ -41,7 +82,7 @@ const faqs = [
   {
     question: 'Where do private sessions take place?',
     answer:
-      'Vanesa offers private sessions in a comfortable space or can coordinate a location that works for you. Reach out and we will find the right fit.',
+      'Vanesa offers in-home and outdoor sessions, with the location coordinated around what works best for you and your group.',
   },
   {
     question: 'Can I book a session for a small group?',
@@ -52,6 +93,11 @@ const faqs = [
     question: 'What should I bring?',
     answer:
       'Wear clothes you can move in and bring water. A mat is helpful, but the most important thing is simply arriving as you are.',
+  },
+  {
+    question: 'Can yoga support a workplace or event?',
+    answer:
+      'Yes. YogaWithVanesa can create customized event and corporate yoga sessions that support wellness, connection, and a calmer workday.',
   },
 ]
 
@@ -76,6 +122,9 @@ function App() {
 
   const submitBooking = (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault()
+    const subject = encodeURIComponent(`YogaWithVanesa inquiry from ${form.name}`)
+    const body = encodeURIComponent(`Name: ${form.name}\nEmail: ${form.email}\nInterested in: ${form.session}\n\n${form.note}`)
+    window.location.href = `mailto:${contactEmail}?subject=${subject}&body=${body}`
     setSubmitted(true)
   }
 
@@ -83,7 +132,7 @@ function App() {
     <div className="site-shell">
       <header className="site-header">
         <a className="brand" href="#top" aria-label="Yoga With Vanesa home">
-          <span className="brand-mark">YWV</span>
+          <img className="brand-logo" src={sourceLogo} alt="" />
           <span className="brand-copy">
             <strong>YogaWithVanesa</strong>
             <small>PRIVATE YOGA</small>
@@ -114,10 +163,10 @@ function App() {
       <main id="top">
         <section className="hero-section">
           <div className="hero-copy">
-            <p className="kicker"><Sparkles size={15} /> PERSONALIZED YOGA FOR REAL LIFE</p>
+            <p className="kicker"><Sparkles size={15} /> IN-HOME • OUTDOOR • PRIVATE YOGA</p>
             <h1>Feel more at home in your body.</h1>
             <p className="hero-lede">
-              Private yoga for people who want to feel better—not just get through another workout.
+              Your practice. Your pace. Your space. Personalized yoga for people who want to feel better—not just get through another workout.
             </p>
             <div className="hero-actions">
               <button className="button button-dark" onClick={openBooking}>
@@ -131,20 +180,20 @@ function App() {
               <div className="proof-avatars" aria-hidden="true">
                 <span>J</span><span>M</span><span>A</span>
               </div>
-              <p><strong>A practice that meets you where you are.</strong><br />One-on-one or small-group sessions.</p>
+              <p><strong>5+ years of teaching experience.</strong><br />One-on-one, small-group, and event sessions.</p>
             </div>
           </div>
 
           <div className="hero-art" aria-label="A person practicing yoga outdoors">
             <div className="hero-image-wrap">
               <img
-                src="https://images.unsplash.com/photo-1544367567-0f2fcb009e0b?auto=format&fit=crop&w=1200&q=85"
-                alt="Woman practicing yoga in a sunlit studio"
+                src="https://yogawithvanesa.com/wp-content/uploads/2022/12/8F006821-B151-4F8F-A743-BB74D44671DB-2048x2048.jpg"
+                alt="Vanesa practicing yoga outdoors"
               />
             </div>
             <div className="hero-note-card">
               <span className="mini-line" />
-              <p>Slow down.<br /><em>Tune in.</em></p>
+              <p>Your pace.<br /><em>Your space.</em></p>
             </div>
             <div className="hero-stamp"><span>YOUR BODY</span><strong>YOUR<br />PRACTICE</strong></div>
             <div className="hero-sun" />
@@ -157,21 +206,21 @@ function App() {
             <h2>Your yoga.<br /><em>Your way.</em></h2>
           </div>
           <div className="statement-copy">
-            <p className="large-copy">Maybe you don’t need another yoga class where you walk in, follow the teacher, and walk out.</p>
-            <p>Maybe you need yoga that actually meets you where you are. Private yoga gives us the space to personalize your practice around your body, your needs, your goals, and how you’re feeling that day.</p>
+            <p className="large-copy">Yoga is a spiritual discipline and a subtle science that brings harmony between mind and body.</p>
+            <p>Build strength and awareness, honor your body, and clear your mind with gentle intentional movement and deep breathing. Each session is shaped around your needs, goals, energy, and how you are feeling that day.</p>
             <a href="#about" className="round-link" aria-label="Learn more about Vanesa"><ArrowRight size={19} /></a>
           </div>
         </section>
 
         <section className="benefits-section">
           <div className="benefits-image">
-            <img src="https://images.unsplash.com/photo-1518611012118-696072aa579a?auto=format&fit=crop&w=1000&q=85" alt="Yoga mat and wellness accessories" />
+            <img src="https://yogawithvanesa.com/wp-content/uploads/2023/06/IMG_6834-scaled-e1686454809505-1024x797.jpeg" alt="Group yoga practice outdoors" />
             <div className="image-caption">A supportive, judgment-free practice.</div>
           </div>
           <div className="benefits-copy">
             <p className="kicker">MADE FOR YOU</p>
             <h2>More than a class.<br /><em>A relationship with yourself.</em></h2>
-            <p>Whether you are looking to move with less tension, build strength and flexibility, calm your mind, or simply feel better in your body—your practice is designed specifically for you.</p>
+            <p>Yoga is a way to train the body and tune the mind—to self-observe, gain awareness, and create more resilience in everyday life.</p>
             <div className="benefit-list">
               {benefits.map((benefit) => (
                 <div className="benefit-item" key={benefit}><span><Check size={14} /></span>{benefit}</div>
@@ -181,44 +230,74 @@ function App() {
           </div>
         </section>
 
-        <section className="offerings-section">
+        <section className="offerings-section" id="services">
           <div className="offerings-heading">
             <div>
               <p className="kicker">WAYS TO PRACTICE</p>
               <h2>Come as you are.</h2>
             </div>
-            <p>Every session is intentional, grounded, and built around what your body needs now.</p>
+            <p>Customized sessions for your individual needs, your people, your event, or your workplace.</p>
           </div>
           <div className="offerings-grid">
             <article className="offering-card featured">
               <div className="offering-number">01</div>
               <h3>One-on-one<br />private yoga</h3>
-              <p>A practice built around your body, energy, goals, and the season of life you are in.</p>
+              <p>Personalized attention for your body, energy, goals, and the season of life you are in.</p>
               <button className="card-arrow" onClick={openBooking} aria-label="Book one-on-one private yoga"><ArrowRight size={18} /></button>
             </article>
             <article className="offering-card">
               <div className="offering-number">02</div>
-              <h3>Small group<br />sessions</h3>
-              <p>Bring your people. Create a private experience for your partner, family, friends, or team.</p>
-              <button className="card-arrow" onClick={openBooking} aria-label="Book a small group session"><ArrowRight size={18} /></button>
+              <h3>Semi-private<br />sessions</h3>
+              <p>Practice with a partner, friends, family, or a small group in a welcoming, judgment-free space.</p>
+              <button className="card-arrow" onClick={openBooking} aria-label="Book a semi-private session"><ArrowRight size={18} /></button>
             </article>
-            <article className="offering-card photo-card">
-              <img src="https://images.unsplash.com/photo-1599447421416-3414500d18a5?auto=format&fit=crop&w=900&q=85" alt="Yoga practice in a warm room" />
-              <div className="photo-card-overlay"><Play size={16} fill="currentColor" /> See the feeling</div>
+            <article className="offering-card">
+              <div className="offering-number">03</div>
+              <h3>Yoga for<br />events</h3>
+              <p>Create a memorable yoga experience for a larger group of friends, colleagues, or community.</p>
+              <button className="card-arrow" onClick={openBooking} aria-label="Book yoga for an event"><ArrowRight size={18} /></button>
             </article>
+            <article className="offering-card featured">
+              <div className="offering-number">04</div>
+              <h3>Corporate<br />wellness</h3>
+              <p>Support employee health, wellness, connection, and productivity with a customized yoga session.</p>
+              <button className="card-arrow" onClick={openBooking} aria-label="Book corporate yoga"><ArrowRight size={18} /></button>
+            </article>
+          </div>
+        </section>
+
+        <section className="gallery-section" id="gallery">
+          <div className="gallery-heading">
+            <div>
+              <p className="kicker">FROM THE PRACTICE</p>
+              <h2>Move, breathe,<br /><em>be here.</em></h2>
+            </div>
+            <div className="gallery-intro">
+              <p>Real moments from YogaWithVanesa classes, outdoor practices, and community gatherings.</p>
+              <a className="text-link" href="https://www.instagram.com/yogawithvanesa/" target="_blank" rel="noreferrer">Follow on Instagram <MoveUpRight size={16} /></a>
+            </div>
+          </div>
+          <div className="gallery-grid">
+            {galleryImages.map((image, index) => (
+              <a className={`gallery-item gallery-item-${index + 1}`} href={image.src} target="_blank" rel="noreferrer" key={image.src}>
+                <img src={image.src} alt={image.alt} loading="lazy" />
+                <span>YogaWithVanesa ↗</span>
+              </a>
+            ))}
           </div>
         </section>
 
         <section className="about-section" id="about">
           <div className="about-image-wrap">
-            <img src="https://images.unsplash.com/photo-1552196563-55cd4e45efb3?auto=format&fit=crop&w=1000&q=85" alt="Yoga instructor sitting in meditation" />
+            <img src="https://yogawithvanesa.com/wp-content/uploads/2022/12/IMG_6509-scaled-qwmlg95yyawwjx4598ai5n9c3qa45t8cg1l0w0goq4.jpeg" alt="Vanesa sitting in meditation" />
             <div className="about-badge">WITH<br /><span>VANESA</span></div>
           </div>
           <div className="about-copy">
             <p className="kicker">MEET VANESA</p>
             <h2>There is no perfect<br /><em>way to practice.</em></h2>
-            <p>Yoga is a way to listen—to your body, your breath, and the parts of you that get quiet when life gets loud.</p>
-            <p>Vanesa creates space for you to slow down, tune in, and build a practice that feels supportive instead of performative. No pressure to keep up. No judgment. Just a thoughtful place to begin.</p>
+            <p>Vanesa has practiced yoga since 2012, when her first class turned her world upside down—literally and metaphorically. She learned a headstand and was hooked.</p>
+            <p>After completing Yogalution Movement’s 200-hour Yoga Teacher Training in February 2019, she began leading group and private classes. Her teaching continues to grow through daily practice and ongoing education.</p>
+            <p>Her goal is simple: share the countless ways yoga can support your body, mind, and spirit.</p>
             <div className="signature">Vanesa <span>♡</span></div>
             <a className="text-link" href="#questions">More questions? <MoveUpRight size={16} /></a>
           </div>
@@ -226,15 +305,15 @@ function App() {
 
         <section className="quote-section">
           <div className="quote-mark">“</div>
-          <blockquote>I left feeling lighter—not because I did the hardest workout, but because I finally had space to hear myself.</blockquote>
-          <p>— PRIVATE SESSION CLIENT</p>
+          <blockquote>Build strength and awareness, honor your body, and clear your mind with gentle intentional movements combined with deep breathing.</blockquote>
+          <p>— YOGAWITHVANESA</p>
         </section>
 
         <section className="faq-section" id="questions">
           <div className="faq-heading">
             <p className="kicker">GOOD TO KNOW</p>
             <h2>Questions,<br /><em>answered.</em></h2>
-            <p>Still curious? Send a note and Vanesa will help you find the right place to start.</p>
+            <p>Still curious? Send a note and Vanesa will help you find the right place to start. You can also email <a href={`mailto:${contactEmail}`}>{contactEmail}</a>.</p>
             <button className="button button-dark" onClick={openBooking}>Say hello <ArrowRight size={17} /></button>
           </div>
           <div className="faq-list">
@@ -253,7 +332,7 @@ function App() {
           <div className="closing-content">
             <p className="kicker">YOUR NEXT STEP</p>
             <h2>Make a little<br /><em>space for yourself.</em></h2>
-            <p>Come exactly as you are. We will take it from there.</p>
+            <p>Come exactly as you are. We will take it from there. In-home, outdoor, and customized group sessions are available.</p>
             <button className="button button-light" onClick={openBooking}>Book a private session <ArrowRight size={17} /></button>
           </div>
           <div className="closing-graphic" aria-hidden="true"><div className="closing-circle"><span>YOGA<br />WITH<br /><em>VANESA</em></span></div></div>
@@ -261,9 +340,9 @@ function App() {
       </main>
 
       <footer className="site-footer">
-        <div className="footer-brand"><span className="brand-mark">YWV</span><strong>YogaWithVanesa</strong></div>
+        <div className="footer-brand"><img className="brand-logo" src={sourceLogo} alt="" /><strong>YogaWithVanesa</strong></div>
         <p>Private yoga for your body, mind, and spirit.</p>
-        <div className="footer-links"><a href="#top">Back to top ↑</a><a href="https://instagram.com" target="_blank" rel="noreferrer" aria-label="Instagram"><Share2 size={18} /></a></div>
+        <div className="footer-links"><a href="#top">Back to top ↑</a><a href={`mailto:${contactEmail}`}>{contactEmail}</a><a href="https://www.instagram.com/yogawithvanesa/" target="_blank" rel="noreferrer" aria-label="Instagram"><Share2 size={18} /></a></div>
       </footer>
 
       {bookingOpen && (
@@ -274,13 +353,13 @@ function App() {
               <>
                 <p className="kicker">LET’S CONNECT</p>
                 <h2 id="booking-title">Find your way<br /><em>to practice.</em></h2>
-                <p className="modal-intro">Tell Vanesa a little about what you are looking for. This is the first step, not a commitment.</p>
+                <p className="modal-intro">Tell Vanesa a little about what you are looking for. Your email app will open with the inquiry addressed to {contactEmail}.</p>
                 <form onSubmit={submitBooking}>
                   <label>Name<input required value={form.name} onChange={(event) => updateForm('name', event.target.value)} placeholder="Your name" /></label>
                   <label>Email<input required type="email" value={form.email} onChange={(event) => updateForm('email', event.target.value)} placeholder="you@example.com" /></label>
                   <label>What are you interested in?
                     <select value={form.session} onChange={(event) => updateForm('session', event.target.value)}>
-                      <option>One-on-one session</option><option>Small group session</option><option>Not sure yet</option>
+                      <option>One-on-one session</option><option>Semi-private session</option><option>Yoga for an event</option><option>Corporate wellness</option><option>Not sure yet</option>
                     </select>
                   </label>
                   <label>Anything you want to share? <textarea value={form.note} onChange={(event) => updateForm('note', event.target.value)} placeholder="Goals, questions, or simply hello..." rows={3} /></label>
@@ -292,7 +371,7 @@ function App() {
                 <div className="success-icon"><Check size={24} /></div>
                 <p className="kicker">MESSAGE RECEIVED</p>
                 <h2>Thank you,<br /><em>{form.name || 'friend'}.</em></h2>
-                <p>Vanesa will be in touch soon. Until then, take one slow breath for yourself.</p>
+                <p>Your email draft should be ready. If it did not open, write directly to <a href={`mailto:${contactEmail}`}>{contactEmail}</a>.</p>
                 <button className="button button-dark" onClick={() => setBookingOpen(false)}>Done <Check size={17} /></button>
               </div>
             )}
