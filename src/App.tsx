@@ -39,7 +39,7 @@ const navItems = [
   { key: 'questions', href: '#questions', icon: CircleHelp },
 ] as const
 
-const contactEmail = 'info@yogawithvanesa.com'
+const contactEmail = 'hello@yogawithvanesa.com'
 const sourceLogo = 'https://yogawithvanesa.com/wp-content/uploads/2022/04/Logo.png'
 
 const galleryImages = [
