@@ -342,6 +342,7 @@ function App() {
   }, [systemPrefersDark, themePreference])
 
   useEffect(() => {
+    document.documentElement.lang = language
     window.localStorage.setItem('ywv-language', language)
   }, [language])
 
