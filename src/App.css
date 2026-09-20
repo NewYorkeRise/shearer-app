@@ -89,7 +89,7 @@ h1, h2 { letter-spacing: -.065em; }
 .benefit-list { display: grid; grid-template-columns: 1fr 1fr; gap: 15px 17px; margin: 30px 0 34px; }
 .benefit-item { display: flex; align-items: center; gap: 10px; color: var(--ink); font-size: 12px; font-weight: 700; }
 .benefit-item span { display: grid; place-items: center; width: 23px; height: 23px; color: white; background: var(--teal); border-radius: 50%; }
-.offerings-section { padding: 125px max(28px, calc((100vw - 1184px) / 2)) 144px; color: #f9f5eb; background: var(--ink); }
+.offerings-section { padding: 125px max(28px, calc((100vw - 1184px) / 2)) 144px; color: #f9f5eb; background: var(--deep); }
 .offerings-heading { display: flex; align-items: end; justify-content: space-between; gap: 40px; max-width: 1184px; margin: 0 auto 48px; }
 .offerings-heading .kicker { color: #a8d2cc; }
 .offerings-heading h2 { margin: 15px 0 0; font-size: clamp(43px, 5vw, 66px); }
@@ -309,6 +309,8 @@ html[data-theme='dark'] .site-footer > p { color: rgba(234,242,239,.7); }
 html[data-theme='dark'] .hero-note-card,
 html[data-theme='dark'] .image-caption,
 html[data-theme='dark'] .booking-modal { color: var(--ink); background: #1b2a2b; }
+html[data-theme='dark'] .closing-section { color: #f8f4e9; background: #235f62; }
+html[data-theme='dark'] .closing-content h2 em { color: #d6f3ed; }
 html[data-theme='dark'] .button-light { color: #102b2d; background: #e9f2eb; }
 html[data-theme='dark'] input,
 html[data-theme='dark'] select,
