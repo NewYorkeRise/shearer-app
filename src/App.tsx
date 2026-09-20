@@ -289,7 +289,7 @@ function App() {
 
         <section className="about-section" id="about">
           <div className="about-image-wrap">
-            <img src="https://yogawithvanesa.com/wp-content/uploads/2022/12/IMG_6509-scaled-qwmlg95yyawwjx4598ai5n9c3qa45t8cg1l0w0goq4.jpeg" alt="Vanesa sitting in meditation" />
+            <img src="https://yogawithvanesa.com/wp-content/uploads/elementor/thumbs/IMG_6509-scaled-qwmlg95yyawwjx4598ai5n9c3qa45t8cg1l0w0goq4.jpeg" alt="Vanesa sitting in meditation" />
             <div className="about-badge">WITH<br /><span>VANESA</span></div>
           </div>
           <div className="about-copy">
