@@ -134,6 +134,17 @@ function App() {
     setSubmitted(true)
   }
 
+  const renderNavItem = (item: (typeof navItems)[number]) => {
+    const NavIcon = item.icon
+    return (
+      <a key={item.href} href={item.href} onClick={() => setMenuOpen(false)}>
+        <NavIcon className="nav-icon" size={18} strokeWidth={2} aria-hidden="true" />
+        <span className="nav-label-long">{item.label}</span>
+        <span className="nav-label-short">{item.shortLabel}</span>
+      </a>
+    )
+  }
+
   return (
     <div className="site-shell">
       <header className="site-header">
@@ -146,22 +157,14 @@ function App() {
         </a>
 
         <nav className={`desktop-nav ${menuOpen ? 'is-open' : ''}`} aria-label="Main navigation">
-          {navItems.map((item) => {
-            const NavIcon = item.icon
-            return (
-              <a key={item.href} href={item.href} onClick={() => setMenuOpen(false)}>
-                <NavIcon className="nav-icon" size={18} strokeWidth={2} aria-hidden="true" />
-                <span className="nav-label-long">{item.label}</span>
-                <span className="nav-label-short">{item.shortLabel}</span>
-              </a>
-            )
-          })}
+          {navItems.slice(0, 2).map(renderNavItem)}
           <button className="nav-cta" onClick={openBooking}>
             <CalendarDays className="nav-icon" size={18} strokeWidth={2} aria-hidden="true" />
             <span className="nav-label-long">Book a session</span>
             <span className="nav-label-short">Book</span>
             <ArrowRight className="nav-arrow" size={16} />
           </button>
+          {navItems.slice(2).map(renderNavItem)}
         </nav>
 
         <button
