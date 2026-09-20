@@ -25,6 +25,7 @@ button { cursor: pointer; }
 .desktop-nav { display: flex; align-items: center; gap: 31px; }
 .desktop-nav a { color: rgba(25, 63, 67, .75); font-size: 12px; text-decoration: none; transition: color .2s ease; }
 .desktop-nav a:hover { color: var(--teal); }
+.nav-label-short { display: none; }
 .nav-cta, .button { display: inline-flex; align-items: center; justify-content: center; gap: 9px; border: 1px solid transparent; border-radius: 2px; font-size: 12px; font-weight: 700; transition: transform .2s ease, background .2s ease, color .2s ease, border .2s ease; }
 .nav-cta { min-height: 42px; padding: 0 16px; color: white; background: var(--teal); }
 .nav-cta:hover, .button-dark:hover { background: var(--teal-dark); transform: translateY(-2px); }
@@ -244,4 +245,28 @@ input:focus, select:focus, textarea:focus { border-color: var(--teal); box-shado
   .site-footer { align-items: flex-start; flex-wrap: wrap; padding: 23px 20px; }
   .site-footer > p { order: 3; width: 100%; }
   .booking-modal { padding: 38px 23px 28px; }
+}
+
+/* Phones, tablets, and iPads use a thumb-friendly bottom navigation. */
+@media (max-width: 1024px) {
+  html { scroll-padding-bottom: 86px; }
+  body { padding-bottom: 76px; }
+  .site-shell { padding-bottom: env(safe-area-inset-bottom); }
+  .site-header { position: relative; z-index: 21; }
+  .menu-toggle { display: none; }
+  .desktop-nav { position: fixed !important; top: auto !important; right: 0; bottom: 0; left: 0; z-index: 30; display: flex !important; align-items: stretch; justify-content: center; gap: 0; padding: 8px max(10px, calc((100vw - 900px) / 2)) calc(8px + env(safe-area-inset-bottom)); border-top: 1px solid var(--line); background: rgba(247,245,239,.96); box-shadow: 0 -12px 28px rgba(25,63,67,.13); backdrop-filter: blur(14px); }
+  .desktop-nav a, .desktop-nav .nav-cta { flex: 1 1 0; min-width: 0; min-height: 52px; padding: 8px 5px; }
+  .desktop-nav a { display: flex; align-items: center; justify-content: center; color: var(--ink); font-size: 11px; font-weight: 700; text-align: center; }
+  .desktop-nav a:hover { color: var(--teal); }
+  .desktop-nav .nav-cta { flex-direction: column; gap: 3px; border-radius: 3px; font-size: 11px; white-space: nowrap; }
+  .desktop-nav .nav-cta svg { width: 14px; height: 14px; }
+  .nav-label-long { display: none; }
+  .nav-label-short { display: inline; }
+}
+
+@media (max-width: 620px) {
+  body { padding-bottom: 72px; }
+  .desktop-nav { padding-right: 6px; padding-left: 6px; }
+  .desktop-nav a, .desktop-nav .nav-cta { min-height: 54px; padding: 7px 2px; font-size: 10px; }
+  .desktop-nav .nav-cta svg { display: none; }
 }

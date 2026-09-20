@@ -19,11 +19,11 @@ type BookingForm = {
 }
 
 const navItems = [
-  { label: 'The experience', href: '#experience' },
-  { label: 'Services', href: '#services' },
-  { label: 'Gallery', href: '#gallery' },
-  { label: 'About Vanesa', href: '#about' },
-  { label: 'Questions', href: '#questions' },
+  { label: 'Home', shortLabel: 'Home', href: '#top' },
+  { label: 'Services', shortLabel: 'Services', href: '#services' },
+  { label: 'Gallery', shortLabel: 'Gallery', href: '#gallery' },
+  { label: 'About Vanesa', shortLabel: 'About', href: '#about' },
+  { label: 'Questions', shortLabel: 'FAQ', href: '#questions' },
 ]
 
 const benefits = [
@@ -142,11 +142,14 @@ function App() {
         <nav className={`desktop-nav ${menuOpen ? 'is-open' : ''}`} aria-label="Main navigation">
           {navItems.map((item) => (
             <a key={item.href} href={item.href} onClick={() => setMenuOpen(false)}>
-              {item.label}
+              <span className="nav-label-long">{item.label}</span>
+              <span className="nav-label-short">{item.shortLabel}</span>
             </a>
           ))}
           <button className="nav-cta" onClick={openBooking}>
-            Book a session <ArrowRight size={16} />
+            <span className="nav-label-long">Book a session</span>
+            <span className="nav-label-short">Book</span>
+            <ArrowRight size={16} />
           </button>
         </nav>
 
