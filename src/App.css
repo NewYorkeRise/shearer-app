@@ -247,26 +247,26 @@ input:focus, select:focus, textarea:focus { border-color: var(--teal); box-shado
   .booking-modal { padding: 38px 23px 28px; }
 }
 
-/* Phones, tablets, and iPads use a thumb-friendly bottom navigation. */
+/* Phones, tablets, and iPads keep navigation directly below the brand header. */
 @media (max-width: 1024px) {
-  html { scroll-padding-bottom: 86px; }
-  body { padding-bottom: 76px; }
-  .site-shell { padding-bottom: env(safe-area-inset-bottom); }
-  .site-header { position: relative; z-index: 21; }
+  html { scroll-padding-bottom: 0; }
+  body { padding-bottom: 0; }
+  .site-shell { padding-bottom: 0; }
+  .site-header { position: relative; z-index: 21; height: auto; min-height: 76px; padding: 14px 22px 0; flex-wrap: wrap; }
   .menu-toggle { display: none; }
-  .desktop-nav { position: fixed !important; top: auto !important; right: 0; bottom: 0; left: 0; z-index: 30; display: flex !important; align-items: stretch; justify-content: center; gap: 0; padding: 8px max(10px, calc((100vw - 900px) / 2)) calc(8px + env(safe-area-inset-bottom)); border-top: 1px solid var(--line); background: rgba(247,245,239,.96); box-shadow: 0 -12px 28px rgba(25,63,67,.13); backdrop-filter: blur(14px); }
-  .desktop-nav a, .desktop-nav .nav-cta { flex: 1 1 0; min-width: 0; min-height: 52px; padding: 8px 5px; }
+  .desktop-nav { position: static !important; top: auto !important; right: auto; bottom: auto; left: auto; order: 3; width: calc(100% + 44px); margin: 14px -22px 0; padding: 8px 22px; display: flex !important; align-items: stretch; justify-content: flex-start; gap: 4px; overflow-x: auto; border-top: 1px solid var(--line); border-bottom: 1px solid var(--line); background: rgba(247,245,239,.96); box-shadow: 0 8px 18px rgba(25,63,67,.08); scrollbar-width: none; }
+  .desktop-nav::-webkit-scrollbar { display: none; }
+  .desktop-nav a, .desktop-nav .nav-cta { flex: 0 0 auto; min-width: 82px; min-height: 45px; padding: 8px 10px; }
   .desktop-nav a { display: flex; align-items: center; justify-content: center; color: var(--ink); font-size: 11px; font-weight: 700; text-align: center; }
   .desktop-nav a:hover { color: var(--teal); }
-  .desktop-nav .nav-cta { flex-direction: column; gap: 3px; border-radius: 3px; font-size: 11px; white-space: nowrap; }
+  .desktop-nav .nav-cta { border-radius: 3px; font-size: 11px; white-space: nowrap; }
   .desktop-nav .nav-cta svg { width: 14px; height: 14px; }
   .nav-label-long { display: none; }
   .nav-label-short { display: inline; }
 }
 
 @media (max-width: 620px) {
-  body { padding-bottom: 72px; }
-  .desktop-nav { padding-right: 6px; padding-left: 6px; }
-  .desktop-nav a, .desktop-nav .nav-cta { min-height: 54px; padding: 7px 2px; font-size: 10px; }
-  .desktop-nav .nav-cta svg { display: none; }
+  .site-header { padding: 12px 14px 0; }
+  .desktop-nav { width: calc(100% + 28px); margin-right: -14px; margin-left: -14px; padding: 7px 14px; gap: 3px; }
+  .desktop-nav a, .desktop-nav .nav-cta { min-width: 70px; min-height: 43px; padding: 7px 8px; font-size: 10px; }
 }
