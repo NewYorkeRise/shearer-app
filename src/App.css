@@ -317,3 +317,27 @@ html[data-theme='dark'] select,
 html[data-theme='dark'] textarea { color: var(--ink); background: rgba(255,255,255,.06); }
 html[data-theme='dark'] .desktop-nav { background: rgba(16,26,27,.97); }
 html[data-theme='dark'] .modal-backdrop { background: rgba(0,15,17,.78); }
+
+/* Keep interactive controls and supporting copy readable in dark mode. */
+html[data-theme='dark'] .desktop-nav a { color: rgba(234,242,239,.82); }
+html[data-theme='dark'] .desktop-nav a:hover { color: var(--teal); }
+html[data-theme='dark'] .button-dark,
+html[data-theme='dark'] .nav-cta { color: #fff; background: #2f8585; }
+html[data-theme='dark'] .button-dark:hover,
+html[data-theme='dark'] .nav-cta:hover { color: #fff; background: #3ba19d; }
+html[data-theme='dark'] .statement-copy p,
+html[data-theme='dark'] .benefits-copy > p:not(.kicker),
+html[data-theme='dark'] .about-copy > p:not(.kicker),
+html[data-theme='dark'] .faq-heading > p:not(.kicker),
+html[data-theme='dark'] .gallery-intro p,
+html[data-theme='dark'] .faq-answer,
+html[data-theme='dark'] .modal-intro,
+html[data-theme='dark'] .success-state > p:not(.kicker),
+html[data-theme='dark'] .quote-section > p { color: rgba(234,242,239,.72); }
+html[data-theme='dark'] .featured p { color: rgba(234,242,239,.75); }
+html[data-theme='dark'] .round-link,
+html[data-theme='dark'] .benefit-item span,
+html[data-theme='dark'] .success-icon { color: #fff; background: #2f8585; }
+html[data-theme='dark'] .button-outline:hover,
+html[data-theme='dark'] .card-arrow:hover,
+html[data-theme='dark'] .modal-close:hover { color: #102b2d; background: #e9f2eb; }
