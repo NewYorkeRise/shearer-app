@@ -1,12 +1,18 @@
 import { useState } from 'react'
 import {
   ArrowRight,
+  BriefcaseBusiness,
+  CalendarDays,
   Check,
   ChevronDown,
+  CircleHelp,
+  House,
+  Images,
   Menu,
   MoveUpRight,
   Share2,
   Sparkles,
+  UserRound,
   X,
 } from 'lucide-react'
 import './App.css'
@@ -19,11 +25,11 @@ type BookingForm = {
 }
 
 const navItems = [
-  { label: 'Home', shortLabel: 'Home', href: '#top' },
-  { label: 'Services', shortLabel: 'Services', href: '#services' },
-  { label: 'Gallery', shortLabel: 'Gallery', href: '#gallery' },
-  { label: 'About Vanesa', shortLabel: 'About', href: '#about' },
-  { label: 'Questions', shortLabel: 'FAQ', href: '#questions' },
+  { label: 'Home', shortLabel: 'Home', href: '#top', icon: House },
+  { label: 'Services', shortLabel: 'Services', href: '#services', icon: BriefcaseBusiness },
+  { label: 'Gallery', shortLabel: 'Gallery', href: '#gallery', icon: Images },
+  { label: 'About Vanesa', shortLabel: 'About', href: '#about', icon: UserRound },
+  { label: 'Questions', shortLabel: 'FAQ', href: '#questions', icon: CircleHelp },
 ]
 
 const benefits = [
@@ -140,16 +146,21 @@ function App() {
         </a>
 
         <nav className={`desktop-nav ${menuOpen ? 'is-open' : ''}`} aria-label="Main navigation">
-          {navItems.map((item) => (
-            <a key={item.href} href={item.href} onClick={() => setMenuOpen(false)}>
-              <span className="nav-label-long">{item.label}</span>
-              <span className="nav-label-short">{item.shortLabel}</span>
-            </a>
-          ))}
+          {navItems.map((item) => {
+            const NavIcon = item.icon
+            return (
+              <a key={item.href} href={item.href} onClick={() => setMenuOpen(false)}>
+                <NavIcon className="nav-icon" size={18} strokeWidth={2} aria-hidden="true" />
+                <span className="nav-label-long">{item.label}</span>
+                <span className="nav-label-short">{item.shortLabel}</span>
+              </a>
+            )
+          })}
           <button className="nav-cta" onClick={openBooking}>
+            <CalendarDays className="nav-icon" size={18} strokeWidth={2} aria-hidden="true" />
             <span className="nav-label-long">Book a session</span>
             <span className="nav-label-short">Book</span>
-            <ArrowRight size={16} />
+            <ArrowRight className="nav-arrow" size={16} />
           </button>
         </nav>
 

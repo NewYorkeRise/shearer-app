@@ -25,6 +25,7 @@ button { cursor: pointer; }
 .desktop-nav { display: flex; align-items: center; gap: 31px; }
 .desktop-nav a { color: rgba(25, 63, 67, .75); font-size: 12px; text-decoration: none; transition: color .2s ease; }
 .desktop-nav a:hover { color: var(--teal); }
+.nav-icon { display: none; }
 .nav-label-short { display: none; }
 .nav-cta, .button { display: inline-flex; align-items: center; justify-content: center; gap: 9px; border: 1px solid transparent; border-radius: 2px; font-size: 12px; font-weight: 700; transition: transform .2s ease, background .2s ease, color .2s ease, border .2s ease; }
 .nav-cta { min-height: 42px; padding: 0 16px; color: white; background: var(--teal); }
@@ -247,26 +248,29 @@ input:focus, select:focus, textarea:focus { border-color: var(--teal); box-shado
   .booking-modal { padding: 38px 23px 28px; }
 }
 
-/* Phones, tablets, and iPads keep navigation directly below the brand header. */
+/* Phones, tablets, and iPads use a Facebook-style bottom navigation bar. */
 @media (max-width: 1024px) {
-  html { scroll-padding-bottom: 0; }
-  body { padding-bottom: 0; }
-  .site-shell { padding-bottom: 0; }
-  .site-header { position: relative; z-index: 21; height: auto; min-height: 76px; padding: 14px 22px 0; flex-wrap: wrap; }
+  html { scroll-padding-bottom: 82px; }
+  body { padding-bottom: 76px; }
+  .site-shell { padding-bottom: env(safe-area-inset-bottom); }
+  .site-header { position: relative; z-index: 21; height: 76px; padding: 0 22px; }
   .menu-toggle { display: none; }
-  .desktop-nav { position: static !important; top: auto !important; right: auto; bottom: auto; left: auto; order: 3; width: calc(100% + 44px); margin: 14px -22px 0; padding: 8px 22px; display: flex !important; align-items: stretch; justify-content: flex-start; gap: 4px; overflow-x: auto; border-top: 1px solid var(--line); border-bottom: 1px solid var(--line); background: rgba(247,245,239,.96); box-shadow: 0 8px 18px rgba(25,63,67,.08); scrollbar-width: none; }
-  .desktop-nav::-webkit-scrollbar { display: none; }
-  .desktop-nav a, .desktop-nav .nav-cta { flex: 0 0 auto; min-width: 82px; min-height: 45px; padding: 8px 10px; }
-  .desktop-nav a { display: flex; align-items: center; justify-content: center; color: var(--ink); font-size: 11px; font-weight: 700; text-align: center; }
+  .desktop-nav { position: fixed !important; top: auto !important; right: 0; bottom: 0; left: 0; z-index: 30; display: flex !important; align-items: stretch; justify-content: center; gap: 0; padding: 7px max(10px, calc((100vw - 900px) / 2)) calc(7px + env(safe-area-inset-bottom)); border-top: 1px solid var(--line); background: rgba(247,245,239,.97); box-shadow: 0 -10px 26px rgba(25,63,67,.16); backdrop-filter: blur(16px); }
+  .desktop-nav a, .desktop-nav .nav-cta { flex: 1 1 0; min-width: 0; min-height: 58px; padding: 7px 4px; }
+  .desktop-nav a { display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 4px; color: var(--ink); font-size: 10px; font-weight: 700; text-align: center; }
   .desktop-nav a:hover { color: var(--teal); }
-  .desktop-nav .nav-cta { border-radius: 3px; font-size: 11px; white-space: nowrap; }
-  .desktop-nav .nav-cta svg { width: 14px; height: 14px; }
+  .desktop-nav .nav-cta { flex-direction: column; gap: 4px; border-radius: 4px; font-size: 10px; white-space: nowrap; }
+  .desktop-nav .nav-icon { display: block; }
+  .desktop-nav .nav-arrow { display: none; }
   .nav-label-long { display: none; }
   .nav-label-short { display: inline; }
 }
 
 @media (max-width: 620px) {
-  .site-header { padding: 12px 14px 0; }
-  .desktop-nav { width: calc(100% + 28px); margin-right: -14px; margin-left: -14px; padding: 7px 14px; gap: 3px; }
-  .desktop-nav a, .desktop-nav .nav-cta { min-width: 70px; min-height: 43px; padding: 7px 8px; font-size: 10px; }
+  html { scroll-padding-bottom: 76px; }
+  body { padding-bottom: 70px; }
+  .site-header { height: 72px; padding: 0 19px; }
+  .desktop-nav { padding-right: 5px; padding-left: 5px; }
+  .desktop-nav a, .desktop-nav .nav-cta { min-height: 54px; padding: 6px 2px; font-size: 9px; }
+  .desktop-nav .nav-icon { width: 19px; height: 19px; }
 }
